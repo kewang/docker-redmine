@@ -1,0 +1,17 @@
+version: '3.2'
+services:
+  redmine-postgres:
+    environment:
+      - POSTGRES_PASSWORD=redmine
+      - POSTGRES_USER=redmine
+    image: postgres
+  redmine:
+    image: redmine
+    volumes:
+      - type: bind
+        source: ./static
+        target: /usr/src/redmine/static
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redmine-postgres
