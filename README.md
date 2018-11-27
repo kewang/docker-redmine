@@ -1,1 +1,1 @@
-# docker-redmine-git
+# docker-redmine
